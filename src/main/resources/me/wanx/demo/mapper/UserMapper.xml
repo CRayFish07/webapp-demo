@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	<mapper namespace="me.wanx.demo.mapper.UserMapper">
+		<select id="gets" resultType="User">
+			select *
+			from t_user
+		</select>
+		
+		<select id="get" resultType="User">
+			select *
+			from t_user
+			where id = #{id}
+		</select>
+		
+		<insert id="add" parameterType="User">
+			insert into t_user(id,name) values(#{id},#{name});
+		</insert>
+		
+		<delete id="del">
+			delete 
+			from t_user
+			where id=#{id}
+		</delete>
+		
+		<update id="update" parameterType="User">
+			update t_user set name=#{name} where id=#{id}
+		</update>
+		
+		<select id="searchUsers" resultType="User">
+			select *
+			from t_user
+			limit ${limit}
+			offset ${start}
+		</select>
+		
+		<select id="countUsers" parameterType="map" resultType="integer">
+			select count(*)
+			from t_user
+		</select>
+	</mapper>
