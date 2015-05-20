@@ -36,6 +36,11 @@ public class Hi extends ActionSupport {
 		userService.searchUsers(userPage);
 		return "user-list";
 	}
+	
+	public String del(){
+		this.userService.deleteUser(new Integer(1));
+		return "user-list";
+	}
 
 	public BasePagination<User> getUserPage() {
 		return userPage;

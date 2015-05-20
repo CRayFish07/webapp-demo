@@ -6,7 +6,7 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 
-import me.wanx.demo.form.bean.User;
+import me.wanx.demo.form.bean.UserForm;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -24,9 +24,9 @@ public class TestFormBean {
 	
 	@Test
 	public void test(){
-		User u = new User(1,"");
-		Set<ConstraintViolation<User>> v = validator.validate(u);
-		for(ConstraintViolation<User> cUser  : v ){
+		UserForm u = new UserForm(1,"");
+		Set<ConstraintViolation<UserForm>> v = validator.validate(u);
+		for(ConstraintViolation<UserForm> cUser  : v ){
 			System.out.println(cUser.getMessage());
 		}
 	}

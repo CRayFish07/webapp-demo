@@ -56,6 +56,18 @@
 	    <version>1.5.6</version>
 	</dependency>
 	
+	<!-- 
+      <dependency>
+        <groupId>com.jcabi</groupId>
+        <artifactId>jcabi-aspects</artifactId>
+        <version></version>
+      </dependency>
+      <dependency>
+        <groupId>org.aspectj</groupId>
+        <artifactId>aspectjrt</artifactId>
+        <version>1.0.0</version>
+      </dependency>
+       -->
   </dependencies>
   
   <build>
@@ -191,6 +203,10 @@
 			<version>${jetty.version}</version>
 			<configuration>
 				<reload>manual</reload>
+				<!-- jetty7之后的配置-->
+				<webAppConfig>
+					<contextPath>/webapp</contextPath>
+				</webAppConfig>
 			</configuration>
 		</plugin>
 		<!-- dependency插件 -->

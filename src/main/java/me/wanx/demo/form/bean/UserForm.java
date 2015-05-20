@@ -3,19 +3,18 @@ package me.wanx.demo.form.bean;
 import java.io.Serializable;
 
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.hibernate.validator.constraints.NotEmpty;
 
-public class User implements Serializable{
+public class UserForm implements Serializable{
 	
 	private static final long serialVersionUID = 1498664507970273186L;
 	
-	public User(){};
+	public UserForm(){};
 	
-	public User(Integer id,String name){
+	public UserForm(Integer id,String name){
 		this.id = id;
 		this.name = name;
 	};
