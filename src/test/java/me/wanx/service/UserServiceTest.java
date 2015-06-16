@@ -6,10 +6,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import me.wanx.BaseTest;
-import me.wanx.demo.action.Hi;
+import me.wanx.demo.action.UserAction;
 import me.wanx.demo.service.UserService;
 public class UserServiceTest extends BaseTest {
-	private static final Logger logger = LoggerFactory.getLogger(Hi.class);
+	private static final Logger logger = LoggerFactory.getLogger(UserAction.class);
 	
 	@Autowired
 	private UserService userService;

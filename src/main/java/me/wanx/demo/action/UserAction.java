@@ -10,8 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class Hi extends ActionSupport {
-	private static final Logger logger = LoggerFactory.getLogger(Hi.class);
+public class UserAction extends ActionSupport {
+	private static final Logger logger = LoggerFactory.getLogger(UserAction.class);
 	
 	private static final long serialVersionUID = -4556112956078567336L;
 
@@ -41,6 +41,11 @@ public class Hi extends ActionSupport {
 		this.userService.deleteUser(new Integer(1));
 		return "user-list";
 	}
+	
+	public String update(){
+		logger.error("test exception");
+		return "user-list";
+	}
 
 	public BasePagination<User> getUserPage() {
 		return userPage;
@@ -48,6 +53,10 @@ public class Hi extends ActionSupport {
 
 	public void setUserPage(BasePagination<User> userPage) {
 		this.userPage = userPage;
+	}
+	
+	public static void main(String[] args) {
+		System.out.println(System.getProperty("user.dir"));
 	}
 
 }

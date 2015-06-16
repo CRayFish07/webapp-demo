@@ -37,9 +37,36 @@
 		         <property name="maxActive"><value>${jdbc.maxActive}</value></property>
 		          -->
  		   </bean>
+ 		   <!-- druid 数据库连接池 -->
+ 		   <bean id="druidDataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+ 		   		 <property name="url" value="${jdbc.url}" />
+			     <property name="username" value="${jdbc.username}"/>
+			     <property name="password" value="${jdbc.password}"/>
+			     
+			     <property name="filters" value="stat"/>
+
+			     <property name="maxActive"><value>20</value></property>
+			     <property name="initialSize"><value>1</value></property>
+			     <property name="maxWait"><value>60000</value></property>
+			     <property name="minIdle"><value>1</value></property>
+			
+			     <property name="timeBetweenEvictionRunsMillis"><value>60000</value></property>
+			     <property name="minEvictableIdleTimeMillis"><value>300000</value></property>
+			
+			     <property name="validationQuery"><value>SELECT 'x'</value></property>
+			     <property name="testWhileIdle"><value>true</value></property>
+			     <property name="testOnBorrow"><value>false</value></property>
+			     <property name="testOnReturn"><value>false</value></property>
+			
+			     <property name="poolPreparedStatements"><value>true</value></property>
+			     <property name="maxOpenPreparedStatements"><value>20</value></property>
+			     <!-- 监控日志保存到文件 -->
+			     <property name="timeBetweenLogStatsMillis" value="300000" />
+ 		   </bean>
  		   <!-- SqlSessionFactory -->
 		   <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		    	<property name="dataSource" ref="dataSource" />
+		    	<!-- <property name="dataSource" ref="dataSource" /> -->
+		    	<property name="dataSource" ref="druidDataSource" />
 		    	<property name="typeAliasesPackage" value="me.wanx" />
 		    	<property name="configLocation" value="classpath:mybatis-config.xml"/>
 		   </bean> 
@@ -50,7 +77,8 @@
 		   </bean>
 		   <!-- 事务配置 -->
   		   <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-       			<property name="dataSource" ref="dataSource" />
+       			<!-- <property name="dataSource" ref="dataSource" /> -->
+       			<property name="dataSource" ref="druidDataSource" />
    		   </bean>
    		   
    		   <!-- 拦截器配置事务 start-->

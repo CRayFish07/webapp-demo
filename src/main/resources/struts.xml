@@ -22,10 +22,13 @@
 	</package>
 	
 	<package name="demo" namespace="/demo" extends="webapp-demo">
-		<action name="hi" class="me.wanx.demo.action.Hi" method="hi">
+		<action name="hi" class="me.wanx.demo.action.UserAction" method="hi">
 			<result name="hi">/hi.jsp</result>
 		</action>
-		<action name="users" class="me.wanx.demo.action.Hi" method="users">
+		<action name="users" class="me.wanx.demo.action.UserAction" method="users">
+			<result name="user-list">/user-list.jsp</result>
+		</action>
+		<action name="update" class="me.wanx.demo.action.UserAction" method="update">
 			<result name="user-list">/user-list.jsp</result>
 		</action>
 	</package>
