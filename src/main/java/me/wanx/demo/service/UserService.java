@@ -18,4 +18,6 @@ public interface UserService {
 	public User getUser(Integer id);
 	
 	public void searchUsers(BasePagination<User> userPage);
+	
+	public Integer updateAge(Integer Id);
 }

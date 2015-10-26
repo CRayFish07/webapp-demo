@@ -55,4 +55,14 @@ public class UserServiceImpl implements UserService {
 		
 	}
 	
+	@Override
+	public Integer updateAge(Integer Id) {
+		try {
+			Thread.sleep(20);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		return userMapper.updateAge(Id);
+	}
+	
 }

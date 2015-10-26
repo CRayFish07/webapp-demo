@@ -11,4 +11,6 @@ public interface UserMapper<T extends User> extends BaseMapper<T> {
 	public List<User> searchUsers(Map<String,Object> map);
 	
 	public int countUsers(Map<String,Object> map);
+	
+	public int updateAge(Integer id);
 }
